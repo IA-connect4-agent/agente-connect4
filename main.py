@@ -8,6 +8,11 @@ participants = find_importable_classes("groups", Policy)
 # Build a participant list (name, class)
 players = list(participants.items())
 
+players = [(name, cls) for name, cls in players 
+           if "Group A" in name or "Group B" in name]
+
+print("Jugadores:", [name for name, _ in players])
+
 # Run the tournament
 champion = run_tournament(
     players,
